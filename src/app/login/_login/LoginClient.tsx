@@ -28,17 +28,23 @@ export const LoginClient = ({ themes }: LoginClientProps) => {
 
       return;
     }
-    console.log(themes);
     applyTheme(themes["base"], "base");
     return;
   }, [themes]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsSubmitting(false);
-      router.push("");
-    }, 5000);
-  });
+    if (isSubmitting) {
+      setTimeout(() => {
+        setIsSubmitting(false);
+        const themeName = localStorage.getItem("recentTheme");
+        if (themeName && themeName === "harnessBank") {
+          router.push("/harness");
+        } else {
+          router.push("/");
+        }
+      }, 5000);
+    }
+  }, [isSubmitting, router]);
   return (
     <main className="min-h-screen md:px-4 px-4 md:pb-3 pb-24 ">
       <div className="flex flex-col container mx-auto gap-4">
