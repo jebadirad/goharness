@@ -19,7 +19,7 @@ export const PageHero = () => {
       <div className="flex flex-wrap w-full p-2 justify-center md:pb-0">
         <HeroTextLockup />
         <div className="w-full p-4 hidden md:block md:pb-0">
-          <CTA label="Get Started" onClick={() => null} />
+          <CTA label="Get Started" onClick={() => null} href="/login" />
         </div>
       </div>
     </div>

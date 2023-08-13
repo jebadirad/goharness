@@ -1,5 +1,8 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 export const Header = () => {
+  const pathname = usePathname();
   return (
     <div className="navbar bg-primary fixed top-0 z-10 py-[1.6rem] px-4 items-stretch">
       <div className="flex-1">
@@ -28,20 +31,34 @@ export const Header = () => {
           tabIndex={0}
           className="mt-7 z-[1] p-2 shadow menu menu-sm dropdown-content bg-secondary rounded w-52"
         >
-          <li>
+          <li className="p-1">
             <Link
               href="/harness"
-              className="text-primary hover:text-secondary hover:bg-primary"
+              className={`text-primary hover:text-secondary hover:bg-primary p-4 ${
+                "/harness" === pathname ? "active" : ""
+              }`}
             >
               Harness Bank
             </Link>
           </li>
-          <li>
+          <li className="p-1">
             <Link
               href="/"
-              className="text-primary hover:text-secondary hover:bg-primary"
+              className={`text-primary hover:text-secondary hover:bg-primary p-4 ${
+                "/" === pathname ? "active" : ""
+              }`}
             >
               Everglades Credit Union
+            </Link>
+          </li>
+          <li className="p-1">
+            <Link
+              href="/login"
+              className={`text-primary hover:text-secondary hover:bg-primary p-4 ${
+                "/login" === pathname ? "active" : ""
+              }`}
+            >
+              Login
             </Link>
           </li>
         </ul>

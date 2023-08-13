@@ -1,5 +1,3 @@
-import { themes } from "./index";
-
 export type RemoteTheme = {
   bankName: string;
   logo: string;
@@ -30,8 +28,7 @@ export const mapTheme = (theme: Theme): MappedTheme => {
   };
 };
 
-export const applyTheme = (theme: Theme): void => {
-  console.log(theme);
+export const applyTheme = (theme: Theme, themeName: string): void => {
   const themeObj: MappedTheme = mapTheme(theme);
   if (!themeObj) {
     return;
@@ -44,6 +41,7 @@ export const applyTheme = (theme: Theme): void => {
       }
       root.style.setProperty(prop, themeObj[prop]);
     });
+    localStorage.setItem("recentTheme", themeName);
   }
 };
 
