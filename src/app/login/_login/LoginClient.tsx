@@ -25,10 +25,11 @@ export const LoginClient = ({ themes }: LoginClientProps) => {
       if (recentTheme) {
         applyTheme(recentTheme, themeName);
       }
-
+      document.title = recentTheme.bankName;
       return;
     }
     applyTheme(themes["base"], "base");
+    document.title = themes["base"].bankName;
     return;
   }, [themes]);
 
