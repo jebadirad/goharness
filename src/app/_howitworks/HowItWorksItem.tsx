@@ -12,8 +12,10 @@ export const HowItWorksItem = ({ body, icon, title }: HowItWorksItemProps) => {
       <figure className="pr-0 min-w-[3rem]">{icon}</figure>
       <div className="pl-6 py-[0.6rem]">
         <div className="prose">
-          <p className="pt-[1.2rem] m-0 pb-[.6rem]">{title}</p>
-          <p className="m-0 pb-[1.1rem]">{body}</p>
+          <p className="pt-[1.2rem] m-0 pb-[.6rem] text-primary font-semibold">
+            {title}
+          </p>
+          <p className="m-0 pb-[1.1rem] text-black">{body}</p>
         </div>
       </div>
     </div>

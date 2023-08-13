@@ -1,7 +1,7 @@
-import { HomeClient } from "./_home/HomeClient";
-import { setupSvgUrl } from "./_svgutils/setupSvgUrl";
-import { themes, saveTheme } from "@/themes/index";
+import { HomeClient } from "../_home/HomeClient";
+import { setupSvgUrl } from "../_svgutils/setupSvgUrl";
 import { Theme, extend } from "@/themes/util";
+import { themes, saveTheme } from "@/themes/index";
 
 async function getTheme() {
   const res = await fetch(
@@ -14,18 +14,14 @@ async function getTheme() {
   }
 }
 
-export const preload = () => {
-  void getTheme();
-};
-
 export default async function Home() {
   const theme = await getTheme();
-  const whiteLabelTheme = theme?.["ecu"];
+  const whiteLabelTheme = theme?.["harnessBank"];
   const whiteLabelSvg = setupSvgUrl(whiteLabelTheme?.logo || "");
   if (whiteLabelTheme) {
     whiteLabelTheme.logo = whiteLabelSvg;
     saveTheme({
-      themeName: "ecu",
+      themeName: "harnessBank",
       theme: extend({
         extending: themes.base,
         newTheme: {
@@ -37,8 +33,10 @@ export default async function Home() {
       }),
     });
   }
-
   return (
-    <HomeClient theme={themes["ecu"] || themes.base} currentThemeName="ecu" />
+    <HomeClient
+      theme={whiteLabelTheme || themes.base}
+      currentThemeName="harnessBank"
+    />
   );
 }
