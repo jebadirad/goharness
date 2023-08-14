@@ -16,10 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   await getTheme();
-
   return (
-    <>
-      <HomeClient theme={themes["ecu"] || themes.base} currentThemeName="ecu" />
-    </>
+    <HomeClient theme={themes["ecu"] || themes.base} currentThemeName="ecu" />
   );
 }

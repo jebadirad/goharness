@@ -26,48 +26,7 @@ const config: Config = {
       }),
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-
-    /*  require("tailwindcss-themer")({
-      defaultTheme: {
-        extend: {
-          colors: {
-            primary: "#F3A2C1",
-            secondary: "green",
-            howItWorksBackground: "#F4F4F4",
-            black: "#000",
-            acc: "#8DA035",
-          },
-        },
-      },
-      themes: [
-        {
-          name: "theme-1",
-          extend: {
-            colors: {
-              primary: "blue",
-              secondary: "green",
-              howItWorksBackground: "#F4F4F4",
-              black: "#000",
-              acc: "#8DA035",
-            },
-          },
-        },
-        {
-          name: "theme-2",
-          extend: {
-            primary: "blue",
-            secondary: "green",
-            howItWorksBackground: "#F4F4F4",
-            black: "#000",
-            acc: "#8DA035",
-          },
-        },
-      ],
-    }), */
-    require("daisyui"),
-  ],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
     themes: ["light"],
   },
